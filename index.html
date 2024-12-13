@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <title>Seleção de Jogos - Subway Surfers e Level Devil</title>
+  <meta content="Seleção interativa entre Subway Surfers e Level Devil" name="description">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      width: 100%;
+      background-color: #0077cc; /* Fundo azul */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+    }
+    .game-container {
+      display: flex;
+      justify-content: space-around;
+      width: 80%;
+      height: 70%;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
+    }
+    .game-box {
+      width: 40%;
+      height: 100%;
+      position: relative;
+      cursor: pointer;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      transform: scale(0.8);
+      animation: popIn 0.6s forwards;
+    }
+    .game-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    @keyframes popIn {
+      0% {
+        transform: scale(0.8);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    .portal {
+      position: absolute;
+      width: 300%;
+      height: 300%;
+      background: rgba(0, 0, 0, 0.6);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      border-radius: 50%;
+      animation: portalEffect 1s forwards;
+    }
+    @keyframes portalEffect {
+      0% {
+        transform: translate(-50%, -50%) scale(0);
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="game-container">
+    <div class="game-box" onclick="startGame('subway')">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYr633KwsnhaXFGKHmIWGzOkNXGGXO78y8Aj5b1ZFho-CG4mxq7hu74Mc&s=10" alt="Subway Surfers">
+    </div>
+    <div class="game-box" onclick="startGame('levelDevil')">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmsOr1jERtpCY1ffmHKlUhW7vrdhJdSvWKYVdx5vMor6tO9wCedD-P1Zo&s=10" alt="Level Devil">
+    </div>
+  </div>
+
+  <script>
+    function startGame(game) {
+      // Criar a animação de portal
+      const portal = document.createElement('div');
+      portal.classList.add('portal');
+      document.body.appendChild(portal);
+
+      setTimeout(function () {
+        // Remover o portal após a animação
+        portal.remove();
+
+        // Redirecionar para o jogo escolhido
+        if (game === 'subway') {
+          window.location.href = "https://szhong.4399.com/4399swf//upload_swf/ftp38/liuxinyu/20220308/1/index.html";
+        } else if (game === 'levelDevil') {
+          window.location.href = "https://bitlifeonline.github.io/level-devil/";
+        }
+      }, 1000); // Espera o portal ser exibido antes de redirecionar
+    }
+  </script>
+
+</body>
+</html>
